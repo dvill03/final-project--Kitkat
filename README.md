@@ -26,3 +26,31 @@ over the course of multiple meetings. We would also debug together and decided u
 discussed together how we wanted to format the tweets and decided on using embedded tweets based on the tweet id number. Daniel Villareal
 mainly worked extension, as he was the most familiar with web development within the group. 
 
+We used STS (Spring Tool Suite) to complete our project, so we'll be explaining how to run 
+the project using a STS4 fresh download.
+
+-Project is using Java13 (but I got it working with Java8 setup also)
+-Download STS4
+-Execute the JAR file associated with that download
+-Download Maven if you don't have it yet (we got v3.6.3)
+-Add path to mvn executable commmand in apache-maven<version>/apache-maven/src/bin
+-Open the IDE once that's done being installed 
+(If you get an error, you most likely need 64-bit or 32-bit STS, Java, and OS (depends on your machine). Or you don't have path set to your java executable file.
+-Clone the repo into any directory of your liking
+-Wait for all of you dependencies to be downloaded and indexed
+-Run project as -> Spring Boot Project
+-Default port once the project is running is 8080 (localhost:8080)
+-Once the program successfully runs, you are shown a form with 2 text boxes and submit button
+-First field is your query
+-Second field is how many tweets do you want to collect before Lucene creates documents and analyzes
+-No matter what, you will only get 10 results
+-Your results will be sorted by rank (top-most tweet is highest rank)
+-That's basically how to run our project
+
+NOTE: 
+If there's a problem with the embedded tweet being displayed you can try one of two things:
+1) Remove the async keyword for "<script async src="https://platform.twitter.com/widgets.js"></script>"
+If that doesn't work and you still have a problem using twitter's tweat widget, try
+2) Get rid of everything inside of the <c:forEach></c:forEach> tags EXCEPT the commented code.
+   For that code, go to the end of that <blockquote> and change "${tweet_url}" to "${tweet_id}"
+      Also consider removing the async keyword like before (when using the widget)
